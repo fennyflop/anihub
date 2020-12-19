@@ -2,7 +2,7 @@ import Card from './Card.js';
 
 const gallery = document.querySelector('.gallery');
 
-for (let i = 0; i !== 12; i++) {
+for (let i = 0; i !== 9; i++) {
     fetch('https://randomfox.ca/floof/', {})
         .then((res) => {
             return res.json();

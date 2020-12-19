@@ -1,6 +1,7 @@
 export default class Card {
-    constructor(selector) {
+    constructor(selector, image) {
         this._selector = selector;
+        this._image = image;
     }
     _getTemplate() {
         const cardElement = document
@@ -11,7 +12,7 @@ export default class Card {
     renderCard() {
         const element = this._getTemplate();
         const image = element.querySelector('.gallery__image');
-        image.src = 'https://ichef.bbci.co.uk/news/976/cpsprodpb/41CF/production/_109474861_angrycat-index-getty3-3.jpg';
+        image.src = this._image;
         return element;
     }
 }

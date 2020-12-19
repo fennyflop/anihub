@@ -1,4 +1,8 @@
 import Card from './Card.js';
+import PopupWithImage from './PopupWithImage.js';
+
+const imagePopup = new PopupWithImage(".zoom");
+imagePopup.setEventListeners();
 
 const gallery = document.querySelector('.gallery');
 
@@ -8,8 +12,14 @@ for (let i = 0; i !== 9; i++) {
             return res.json();
         })
         .then((res) => {
-            console.log(res.image)
-            const card = new Card('#card-template', res.image);
+            const card = new Card('#card-template',
+                {
+                    image: res.image,
+                },
+                (link) => {
+                    imagePopup.open(link);
+                }
+            );
             const renderedCard = card.renderCard();
             gallery.append(renderedCard);
         })
